@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'callback'], function () {
+    Route::any('tele2', 'CallbackController@tele2');
+});
