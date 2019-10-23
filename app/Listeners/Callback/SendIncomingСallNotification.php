@@ -25,7 +25,7 @@ class SendIncomingСallNotification
     {
         $telegram = new Telegram(env('TELEGRAM_BOT_API_KEY'));
 
-        $telegram->sendMessage([
+        $telegram::sendMessage([
             'chat_id' => env('TELEGRAM_CHAT_ID'), // 151840872
             'text'    => "Гау-у-у. Вам звонит номер\r\n{$phoneNumber}"
         ]);
