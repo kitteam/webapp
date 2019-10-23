@@ -18,6 +18,10 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        // Telephony
+        'App\Events\Callback\IncomingCall' => [
+            'App\Listeners\Callback\SendIncomingСallNotification',
+        ],
     ];
 
     /**

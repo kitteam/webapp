@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'Профилактические работы';
 });
 
 Auth::routes();
@@ -21,4 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'callback'], function () {
     Route::any('tele2', 'CallbackController@tele2');
+});
+
+Route::get('/test', function (Telegram $telegram) {
+    $request = $telegram::sendMessage(['chat_id' => env('TELEGRAM_CHAT_ID'), 'text' => 'test']);
+    print_r($request);
 });
